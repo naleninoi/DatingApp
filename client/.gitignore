@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/bin/Degug/net6.0/
 # Only exists if Bazel was run
 /bazel-out
 
