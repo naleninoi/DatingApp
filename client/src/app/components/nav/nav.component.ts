@@ -7,4 +7,13 @@ import { Component } from "@angular/core";
 })
 export class NavComponent {
 
+    model: {
+        username: string,
+        password: string
+    } = {username: '', password: ''};
+
+    login() {
+        console.log(this.model);
+    }
+
 }
