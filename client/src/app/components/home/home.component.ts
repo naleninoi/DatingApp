@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit {
     this.usersService.getUsers().subscribe(data => this.users = data);
   }
 
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
+  }
+
 }
