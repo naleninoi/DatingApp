@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/_services/users/users.service';
 
 @Component({
   selector: 'app-home',
@@ -10,22 +9,13 @@ export class HomeComponent implements OnInit {
 
   registerMode = false;
 
-  users: any;
-
-  constructor(
-    private usersService: UsersService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUsers();
   }
 
   registerToggle() {
     this.registerMode = !this.registerMode;
-  }
-
-  getUsers() {
-    this.usersService.getUsers().subscribe(data => this.users = data);
   }
 
   cancelRegisterMode(event: boolean) {

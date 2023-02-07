@@ -10,7 +10,8 @@ import { ReplaySubject } from "rxjs";
 })
 export class AccountService {
     baseUrl = API_URLS.baseUrl;
-    endpointUrl = API_URLS.account.login;
+    loginEndpointUrl = API_URLS.account.login;
+    registerEndpointUrl = API_URLS.account.register;
 
     private currentUserSource = new ReplaySubject<User>(1);
     currentUser$ = this.currentUserSource.asObservable();
@@ -20,7 +21,7 @@ export class AccountService {
     ) {}
 
     login(model: any) {
-        return this.http.post(this.baseUrl + this.endpointUrl, model)
+        return this.http.post(this.baseUrl + this.loginEndpointUrl, model)
             .pipe(
                 map((response: User) => {
                     const user = response;
@@ -40,5 +41,19 @@ export class AccountService {
     logout() {
         localStorage.removeItem('user');
         this.currentUserSource.next(null);
+    }
+
+    register (model: any) {
+        return this.http.post(this.baseUrl + this.registerEndpointUrl, model)
+            .pipe(
+                map((response: User) => {
+                    const user = response;
+                    if (user) {
+                        localStorage.setItem('user', JSON.stringify(user));
+                        this.currentUserSource.next(user);
+                    }
+                    return user;
+                })
+            );
     }
 }
