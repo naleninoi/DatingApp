@@ -6,5 +6,11 @@ export const API_URLS = {
     },
     users: {
         list: 'users'
+    },
+    errors: {
+        notFound: 'buggy/not-found',
+        badRequest: 'buggy/bad-request',
+        serverError: 'buggy/server-error',
+        noAuth: 'buggy/auth'
     }
 }
