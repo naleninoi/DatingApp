@@ -8,6 +8,8 @@ import { ErrorsService } from 'src/app/_services/errors/errors.service';
 })
 export class TestErrorsComponent implements OnInit {
 
+  validationErrors: string[] = [];
+
   constructor(
     private errorsService: ErrorsService
   ) { }
@@ -44,6 +46,7 @@ export class TestErrorsComponent implements OnInit {
       },
       error: error => {
         console.error(error);
+        this.validationErrors = error;
       }
     });
   }
