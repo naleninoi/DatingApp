@@ -69,3 +69,5 @@ D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentica
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Data\UserSeedData.json
+D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\AutoMapper.dll
+D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
