@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URLS } from 'src/app/_infrastructure/api-urls';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorsService {
 
-  baseUrl = API_URLS.baseUrl;
+  baseUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient

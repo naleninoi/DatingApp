@@ -4,12 +4,13 @@ import { API_URLS } from "src/app/_infrastructure/api-urls";
 import { map } from "rxjs/operators";
 import { User } from "src/app/_models/user";
 import { ReplaySubject } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AccountService {
-    baseUrl = API_URLS.baseUrl;
+    baseUrl = environment.apiUrl;
     loginEndpointUrl = API_URLS.account.login;
     registerEndpointUrl = API_URLS.account.register;
 
