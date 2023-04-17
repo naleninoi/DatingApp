@@ -433,3 +433,27 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 appsettings.json
+/API/obj
+/API/bin
+/API/datingapp.db-shm
+/API/datingapp.db-wal
+API/bin/Debug/net6.0/API.deps.json
+API/bin/Debug/net6.0/API.dll
+API/bin/Debug/net6.0/API.exe
+API/bin/Debug/net6.0/API.pdb
+API/obj/API.csproj.nuget.dgspec.json
+API/obj/API.csproj.nuget.g.props
+API/obj/project.assets.json
+API/obj/project.nuget.cache
+API/obj/staticwebassets.pack.sentinel
+API/obj/Debug/net6.0/API.assets.cache
+API/obj/Debug/net6.0/API.csproj.AssemblyReference.cache
+API/obj/Debug/net6.0/API.csproj.CoreCompileInputs.cache
+API/obj/Debug/net6.0/API.csproj.FileListAbsolute.txt
+API/obj/Debug/net6.0/API.dll
+API/obj/Debug/net6.0/API.GeneratedMSBuildEditorConfig.editorconfig
+API/obj/Debug/net6.0/API.genruntimeconfig.cache
+API/obj/Debug/net6.0/API.pdb
+API/obj/Debug/net6.0/apphost.exe
+API/obj/Debug/net6.0/ref/API.dll
+API/obj/Debug/net6.0/refint/API.dll
