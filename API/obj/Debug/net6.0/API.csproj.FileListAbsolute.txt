@@ -71,3 +71,5 @@ D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protoco
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Data\UserSeedData.json
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\AutoMapper.dll
 D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\CloudinaryDotNet.dll
+D:\STUDIES\AspNET\DatingApp\API\bin\Debug\net6.0\Newtonsoft.Json.dll

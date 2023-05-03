@@ -2379,11 +2379,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\STUDIES\\AspNET\\DatingApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\STUDIES\\AspNET\\DatingApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "d:\\STUDIES\\AspNET\\DatingApp\\API\\API.csproj",
+      "projectPath": "D:\\STUDIES\\AspNET\\DatingApp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "d:\\STUDIES\\AspNET\\DatingApp\\API\\obj\\",
+      "outputPath": "D:\\STUDIES\\AspNET\\DatingApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2393,6 +2393,7 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
