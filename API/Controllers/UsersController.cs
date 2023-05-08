@@ -96,7 +96,7 @@ namespace API.Controllers
 
             if (photo is null)
             {
-                return BadRequest("No photo found with id " + photoId);
+                return NotFound("No photo found with id " + photoId);
             }
             if (photo.IsMain)
             {
@@ -114,5 +114,40 @@ namespace API.Controllers
 
             return BadRequest("Failed to set main photo");
         }
+
+        [HttpDelete("delete-photo/{photoId}")]
+        public async Task<ActionResult> DeletePhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            var photo = user.Photos.FirstOrDefault(p => p.Id == photoId);
+
+            if (photo is null)
+            {
+                return NotFound("No photo found with id " + photoId);
+            }
+
+            if (photo.IsMain)
+            {
+                return BadRequest("You cannot delete the main photo");
+            }
+
+            if (photo.PublicId != null)
+            {
+                var result = await _photoService.DeletePhotoAsync(photo.PublicId);
+                if (result.Error != null)
+                {
+                    return BadRequest(result.Error.Message);
+                }
+            }
+
+            user.Photos.Remove(photo);
+            if (await _userRepository.SaveAllAsync())
+            {
+                return Ok();
+            }
+            return BadRequest("Failed to delete photo");
+        }
+
     }
 }
