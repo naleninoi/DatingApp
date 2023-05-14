@@ -1,20 +1,52 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
     <div class="form-group">
-        <input type="text" class="form-control"
+        <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]='registerForm.get("username").errors && registerForm.get("username").touched'
         placeholder="Username"
-        name="username"
-        [(ngModel)]="model.username">
+        formControlName="username">
+        <div class="invalid-feedback">Please enter a username</div>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control"
+        <input
+        type="password"
+        class="form-control"
+        [class.is-invalid]='registerForm.get("password").errors && registerForm.get("password").touched'
         placeholder="Password"
-        name="password"
-        [(ngModel)]="model.password">
+        formControlName="password">
+        <div class="invalid-feedback"
+        *ngIf='registerForm.get("password").hasError("required")'>
+            Please enter a password
+        </div>
+        <div class="invalid-feedback"
+        *ngIf='registerForm.get("password").hasError("minlength")'>
+            The password must be longer than 4 characters
+        </div>
+    </div>
+    <div class="form-group">
+        <input
+        type="password"
+        class="form-control"
+        [class.is-invalid]='registerForm.get("confirmPassword").errors && registerForm.get("confirmPassword").touched'
+        placeholder="Confirm password"
+        formControlName="confirmPassword">
+        <div class="invalid-feedback"
+        *ngIf='registerForm.get("confirmPassword").hasError("required")'>
+            Please enter a confirm password
+        </div>
+        <div class="invalid-feedback"
+        *ngIf='registerForm.get("confirmPassword").hasError("isNotMatching")'>
+            Confirm password must match the password
+        </div>
     </div>
     <div class="form-group text-center">
         <button class="btn btn-success mr-2" type="submit">Register</button>
         <button class="btn btn-outline-info mr-2" type="button" (click)="cancel()">Cancel</button>
     </div>
 </form>
+
+<p>Form value: {{registerForm.value | json}}</p>
+<p>Form status: {{registerForm.status | json}}</p>
