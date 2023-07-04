@@ -2374,19 +2374,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kosmos\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\STUDIES\\AspNET\\DatingApp\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\kosmos\\.nuget\\packages\\",
-      "outputPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\obj\\",
+      "projectPath": "D:\\STUDIES\\AspNET\\DatingApp\\api\\API.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\STUDIES\\AspNET\\DatingApp\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kosmos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2462,7 +2462,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
