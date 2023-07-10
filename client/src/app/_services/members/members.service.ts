@@ -65,8 +65,12 @@ export class MembersService {
   }
 
   getMember(username: string) {
-    const member = this.members.find(m => m.username === username);
-    if (!!member) return of(member);
+    const member = [...this.memberCache.values()]
+      .reduce((arr: Member[], elem: PaginatedResult<Member[]>) => arr.concat(elem.result), [])
+      .find((m: Member) => m.username === username);
+    if (member) {
+      return of(member);
+    }
     return this.http.get<Member>(this.baseUrl + this.membersEndpoint + '/' + username);
   }
 
