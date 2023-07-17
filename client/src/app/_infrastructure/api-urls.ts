@@ -6,6 +6,9 @@ export const API_URLS = {
     members: {
         list: 'users'
     },
+    likes: {
+        list: 'likes'
+    },
     errors: {
         notFound: 'buggy/not-found',
         badRequest: 'buggy/bad-request',

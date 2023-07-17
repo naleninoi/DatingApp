@@ -17,6 +17,7 @@ export class MembersService {
 
   private baseUrl = environment.apiUrl;
   private membersEndpoint = API_URLS.members.list;
+  private likesEndpoint = API_URLS.likes.list;
 
   user: User;
   private _userParams: UserParams;
@@ -113,5 +114,13 @@ export class MembersService {
 
   deletePhoto(photoId: number) {
     return this.http.delete(this.baseUrl + this.membersEndpoint + '/delete-photo/' + photoId);
+  }
+  
+  addLike(username: string) {
+    return this.http.post(this.baseUrl + this.likesEndpoint + '/' + username, {});
+  }
+
+  getLikes(predicate: 'liked' | 'likedBy') {
+    return this.http.get(this.baseUrl + this.likesEndpoint + '?=' + predicate);
   }
 }
