@@ -121,6 +121,8 @@ export class MembersService {
   }
 
   getLikes(predicate: 'liked' | 'likedBy') {
-    return this.http.get(this.baseUrl + this.likesEndpoint + '?=' + predicate);
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("predicate", predicate);
+    return this.http.get<Partial<Member>[]>(this.baseUrl + this.likesEndpoint, {params: queryParams});
   }
 }
