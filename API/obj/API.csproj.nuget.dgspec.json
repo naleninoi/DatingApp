@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {}
+    "C:\\Studies\\DatingApp\\DatingApp\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {
+    "C:\\Studies\\DatingApp\\DatingApp\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Studies\\DatingApp\\DatingApp\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
+        "projectPath": "C:\\Studies\\DatingApp\\DatingApp\\api\\API.csproj",
         "packagesPath": "C:\\Users\\kosmos\\.nuget\\packages\\",
-        "outputPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\obj\\",
+        "outputPath": "C:\\Studies\\DatingApp\\DatingApp\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kosmos\\AppData\\Roaming\\NuGet\\NuGet.Config",
