@@ -9,6 +9,9 @@ export const API_URLS = {
     likes: {
         list: 'likes'
     },
+    messages: {
+        list: 'messages'
+    },
     errors: {
         notFound: 'buggy/not-found',
         badRequest: 'buggy/bad-request',
