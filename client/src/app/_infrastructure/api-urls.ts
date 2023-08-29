@@ -10,7 +10,8 @@ export const API_URLS = {
         list: 'likes'
     },
     messages: {
-        list: 'messages'
+        list: 'messages',
+        thread: 'messages/thread/'
     },
     errors: {
         notFound: 'buggy/not-found',

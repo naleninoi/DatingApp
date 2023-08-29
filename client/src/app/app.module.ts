@@ -27,6 +27,7 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { MemberMessagesComponent } from './components/members/member-messages/member-messages.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -48,6 +49,7 @@ registerLocaleData(localeRu, 'ru');
     PhotoEditorComponent,
     TextInputComponent,
     DateInputComponent,
+    MemberMessagesComponent,
   ],
   imports: [
     BrowserModule,

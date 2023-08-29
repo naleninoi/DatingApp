@@ -12,6 +12,7 @@ export class MessageService {
 
   private baseUrl = environment.apiUrl;
   private messagesEndpoint = API_URLS.messages.list;
+  private threadEndpoint = API_URLS.messages.thread;
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +20,9 @@ export class MessageService {
     let params = getPaginationHeaders(pageNumber, pageSize);
     params = params.append("Container", container);
     return getPaginatedResult<Message[]>(this.baseUrl + this.messagesEndpoint, params, this.http);
+  }
+
+  getMessagesThread(username: string) {
+    return this.http.get<Message[]>(this.baseUrl + this.threadEndpoint + username);
   }
 }
