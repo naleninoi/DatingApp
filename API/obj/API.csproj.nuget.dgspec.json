@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {}
+    "c:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {
+    "c:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "c:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
+        "projectPath": "c:\\Studies\\DatingApp\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\kosmos\\.nuget\\packages\\",
-        "outputPath": "C:\\Studies\\DatingApp\\DatingApp\\API\\obj\\",
+        "outputPath": "c:\\Studies\\DatingApp\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kosmos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,6 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.13, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
