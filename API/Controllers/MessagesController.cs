@@ -91,7 +91,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            if (message.Sender.UserName != currentUsername || message.Recipient.UserName != currentUsername) {
+            if (message.Sender.UserName != currentUsername && message.Recipient.UserName != currentUsername) {
                 return Unauthorized();
             }
 

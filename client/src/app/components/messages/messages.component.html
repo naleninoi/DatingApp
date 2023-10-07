@@ -53,7 +53,9 @@
                 {{message.messageSent | timeago}}
             </td>
             <td>
-                <button class="btn btn-danger">Delete</button>
+                <button (click)="deleteMessage($event, message.id)"
+                    class="btn btn-danger">
+                Delete</button>
             </td>        
         </tr>
     </table>
