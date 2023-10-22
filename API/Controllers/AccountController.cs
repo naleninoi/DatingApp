@@ -42,12 +42,16 @@ namespace API.Controllers
                 return BadRequest(result.Errors);
             }
 
+            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
+
+            if (!roleResult.Succeeded) return BadRequest(roleResult.Errors);
+
             return new UserDto
             {
                 Username = user.UserName,
                 KnownAs = user.KnownAs,
                 Gender = user.Gender,
-                Token = _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user)
             };
         }
 
@@ -71,7 +75,7 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user),
+                Token = await _tokenService.CreateToken(user),
                 KnownAs = user.KnownAs,
                 Gender = user.Gender,
                 PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain)?.Url
