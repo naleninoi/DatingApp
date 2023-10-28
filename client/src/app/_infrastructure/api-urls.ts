@@ -13,6 +13,9 @@ export const API_URLS = {
         list: 'messages',
         thread: 'messages/thread/'
     },
+    admin: {
+        users: 'admin/users-with-roles',
+    },
     errors: {
         notFound: 'buggy/not-found',
         badRequest: 'buggy/bad-request',

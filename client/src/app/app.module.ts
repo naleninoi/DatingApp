@@ -30,6 +30,8 @@ import localeRu from '@angular/common/locales/ru';
 import { MemberMessagesComponent } from './components/members/member-messages/member-messages.component';
 import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
 import { HasRoleDirective } from './_directives/has-role.directive';
+import { UserManagementComponent } from './components/admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './components/admin/photo-management/photo-management.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -54,6 +56,8 @@ registerLocaleData(localeRu, 'ru');
     MemberMessagesComponent,
     AdminPanelComponent,
     HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent,
   ],
   imports: [
     BrowserModule,
