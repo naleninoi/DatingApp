@@ -15,7 +15,7 @@ export const API_URLS = {
     },
     admin: {
         users: 'admin/users-with-roles',
-    },
+        editRoles: 'admin/edit-roles/'    },
     errors: {
         notFound: 'buggy/not-found',
         badRequest: 'buggy/bad-request',
