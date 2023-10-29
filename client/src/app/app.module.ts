@@ -32,6 +32,7 @@ import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './components/admin/user-management/user-management.component';
 import { PhotoManagementComponent } from './components/admin/photo-management/photo-management.component';
+import { RolesModalComponent } from './components/modals/roles-modal/roles-modal.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -58,6 +59,7 @@ registerLocaleData(localeRu, 'ru');
     HasRoleDirective,
     UserManagementComponent,
     PhotoManagementComponent,
+    RolesModalComponent,
   ],
   imports: [
     BrowserModule,

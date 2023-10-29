@@ -9,6 +9,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
@@ -26,8 +27,8 @@ import { TimeagoModule } from 'ngx-timeago';
     NgxGalleryModule,
     BsDatepickerModule.forRoot(),
     PaginationModule.forRoot(),
-    TimeagoModule.forRoot()
-
+    TimeagoModule.forRoot(),
+    ModalModule.forRoot()
   ],
   exports: [
     ToastrModule,
@@ -39,7 +40,8 @@ import { TimeagoModule } from 'ngx-timeago';
     BsDatepickerModule,
     PaginationModule,
     ButtonsModule,
-    TimeagoModule
+    TimeagoModule,
+    ModalModule
   ]
 })
 export class SharedModule { }
