@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './_models/user';
 import { AccountService } from './_services/account/account.service';
+import { PresenceService } from './_services/signalr/presence.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit {
   title = 'Dating App';
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private presenceService: PresenceService
   ) {}
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class AppComponent implements OnInit {
     const user: User = JSON.parse(localStorage.getItem('user'));
     if (user) {
       this.accountService.setCurrentUser(user);
+      this.presenceService.createHubConnection(user);
     }
   }
 
