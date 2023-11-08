@@ -2,10 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { Message } from 'src/app/_models/message';
-import { MembersService } from 'src/app/_services/members/members.service';
 import { MessageService } from 'src/app/_services/messages/message.service';
+import { PresenceService } from 'src/app/_services/signalr/presence.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -26,11 +28,18 @@ export class MemberDetailComponent implements OnInit {
 
   activeTab: TabDirective;
 
+  isUserOnline$: Observable<boolean>;
+
   constructor(
-    private memberService: MembersService,
+    private presenceService: PresenceService,
     private messageService: MessageService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.isUserOnline$ = this.presenceService.onlineUsers$
+    .pipe(
+      map(usernames => usernames.includes(this.member.username))
+    );
+  }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => this.member = data.member);
