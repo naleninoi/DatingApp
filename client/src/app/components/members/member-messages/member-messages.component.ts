@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Message } from 'src/app/_models/message';
 import { MessageService } from 'src/app/_services/messages/message.service';
 
@@ -12,18 +13,19 @@ export class MemberMessagesComponent {
   @Input()
   username: string;
 
-  @Input()
-  messages: Message[];
+  messages$: Observable<Message[]>;
 
   @ViewChild('messageForm') messageForm: NgForm;
 
   messageContent: string;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {
+    this.messages$ = this.messageService.messageThread$;
+  }
 
   sendMessage() {
     this.messageService.sendMessage(this.username, this.messageContent).subscribe(message =>{
-      this.messages.push(message);
+      // this.messages.push(message);
       this.messageForm.reset();
     });
   }

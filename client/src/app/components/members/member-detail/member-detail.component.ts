@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { Message } from 'src/app/_models/message';
+import { User } from 'src/app/_models/user';
+import { AccountService } from 'src/app/_services/account/account.service';
 import { MessageService } from 'src/app/_services/messages/message.service';
 import { PresenceService } from 'src/app/_services/signalr/presence.service';
 
@@ -14,11 +16,13 @@ import { PresenceService } from 'src/app/_services/signalr/presence.service';
   templateUrl: './member-detail.component.html',
   styleUrls: ['./member-detail.component.css']
 })
-export class MemberDetailComponent implements OnInit {
+export class MemberDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('memberTabs', {static: true}) memberTabs: TabsetComponent;
 
   member: Member;
+
+  user: User;
 
   galleryOptions: NgxGalleryOptions[] = [];
 
@@ -33,8 +37,12 @@ export class MemberDetailComponent implements OnInit {
   constructor(
     private presenceService: PresenceService,
     private messageService: MessageService,
+    private accountService: AccountService,
     private route: ActivatedRoute
   ) {
+    this.accountService.currentUser$.pipe(take(1))
+      .subscribe(user => this.user = user);
+
     this.isUserOnline$ = this.presenceService.onlineUsers$
     .pipe(
       map(usernames => usernames.includes(this.member.username))
@@ -58,7 +66,10 @@ export class MemberDetailComponent implements OnInit {
     }];
 
     this.galleryImages = this.getImages();
+  }
 
+  ngOnDestroy(): void {
+    this.messageService.stopHubConnection();
   }
 
   getImages(): NgxGalleryImage[] {
@@ -82,7 +93,9 @@ export class MemberDetailComponent implements OnInit {
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
     if (this.activeTab.heading === 'Messages' && this.messages.length === 0) {
-      this.loadMessages();
+      this.messageService.createHubConnection(this.user, this.member.username);
+    } else {
+      this.messageService.stopHubConnection();
     }
   }
 
