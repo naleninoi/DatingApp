@@ -42,7 +42,7 @@ namespace API
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowCredentials()
-                .WithOrigins("http://localhost:4200"));
+                .WithOrigins(new string[] {"http://localhost:4200", "http://localhost:63982"}));
 
             app.UseAuthentication();
             
