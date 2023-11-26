@@ -38,11 +38,15 @@ export class PresenceService {
       .catch(error => console.error(error));
 
     this.hubConnection.on('UserIsOnline', username => {
-      this.toastr.info(username + ' has connected');
+      this.onlineUsers$.pipe(take(1)).subscribe(usernames => {
+        this.onlineUsersSource.next([...usernames, username]);
+      });
     });
 
     this.hubConnection.on('UserIsOffline', username => {
-      this.toastr.info(username + ' has disconnected');
+      this.onlineUsers$.pipe(take(1)).subscribe(usernames => {
+        this.onlineUsersSource.next([...usernames.filter(u => u !== username)]);
+      });
     });
 
     this.hubConnection.on('GetOnlineUsers', (usernames: string[]) => {
