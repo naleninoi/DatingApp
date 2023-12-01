@@ -69,11 +69,6 @@ namespace API.Data
                 .ToListAsync();
         }
 
-        async Task<bool> IUserRepository.SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
-
         void IUserRepository.Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;
