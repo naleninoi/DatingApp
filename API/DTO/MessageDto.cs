@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace API.DTO
 {
@@ -26,6 +23,12 @@ namespace API.DTO
         public DateTime? DateRead { get; set; }
 
         public DateTime MessageSent { get; set; }
+
+        [JsonIgnore]
+        public bool SenderDeleted { get; set; }
+
+        [JsonIgnore]
+        public bool RecipientDeleted { get; set; }
 
     }
 }
