@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Observable } from 'rxjs';
+import { ConfirmDialogComponent } from 'src/app/components/modals/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class ConfirmService {
     title = 'Confirmation',
     message = 'Are you sure?',
     btnOkText = 'Ok',
-    btnCancelText = 'Cancel') {
+    btnCancelText = 'Cancel'): Observable<boolean> {
       const config = {
         initialState: {
           title,
@@ -26,6 +28,23 @@ export class ConfirmService {
         }
       };
 
-      this.bsModalRef = this.modalService.show('confirm', config)
+      this.bsModalRef = this.modalService.show(ConfirmDialogComponent, config);
+
+      return new Observable<boolean>(this.getResult());
+  }
+
+  private getResult() {
+    return (observer) => {
+      const subscription = this.bsModalRef.onHidden.subscribe(() => {
+        observer.next(this.bsModalRef.content.result);
+        observer.complete();
+      });
+
+      return {
+        unsubscribe() {
+          subscription.unsubscribe();
+        }
+      }
+    }
   }
 }
