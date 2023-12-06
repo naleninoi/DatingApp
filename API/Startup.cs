@@ -44,9 +44,11 @@ namespace API
                 .AllowCredentials()
                 .WithOrigins(new string[] {"http://localhost:4200", "http://localhost:63982"}));
 
-            app.UseAuthentication();
-            
+            app.UseAuthentication();            
             app.UseAuthorization();
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
