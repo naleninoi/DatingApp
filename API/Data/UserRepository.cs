@@ -50,31 +50,34 @@ namespace API.Data
                 userParams.PageNumber, userParams.PageSize);
         }
 
-        async Task<AppUser> IUserRepository.GetUserByIdAsync(int id)
+        public async Task<string> GetUserGender(string username)
+        {
+            return await _context.Users
+                .Where(u => u.UserName == username)
+                .Select(u => u.Gender)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<AppUser> GetUserByIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);
         }
 
-        async Task<AppUser> IUserRepository.GetUserByUsernameAsync(string username)
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
             return await _context.Users
                 .Include(u => u.Photos)
                 .SingleOrDefaultAsync(u => u.UserName == username);
         }
 
-        async Task<IEnumerable<AppUser>> IUserRepository.GetUsersAsync()
+        public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             return await _context.Users
                 .Include(u => u.Photos)
                 .ToListAsync();
         }
 
-        async Task<bool> IUserRepository.SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
-
-        void IUserRepository.Update(AppUser user)
+        public void Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;
         }
